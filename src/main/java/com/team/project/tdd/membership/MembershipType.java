@@ -1,4 +1,4 @@
-package com.team.project.tdd;
+package com.team.project.tdd.membership;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

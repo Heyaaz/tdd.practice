@@ -2,6 +2,9 @@ package com.team.project.tdd;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import com.team.project.tdd.membership.Membership;
+import com.team.project.tdd.membership.MembershipRepository;
+import com.team.project.tdd.membership.MembershipType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -14,14 +17,14 @@ public class MembershipRepositoryTest {
   @Test
   void 멤버십등록() {
     // Given
-    final MemberShip memberShip = MemberShip.builder()
+    final Membership memberShip = Membership.builder()
         .userId("userId")
         .membershipType(MembershipType.NAVER)
         .point(10000)
         .build();
 
     // When
-    final MemberShip result = membershipRepository.save(memberShip);
+    final Membership result = membershipRepository.save(memberShip);
 
     // Then
     assertThat(result.getId()).isNotNull();
@@ -34,7 +37,7 @@ public class MembershipRepositoryTest {
   @Test
   void 멤버십이존재하는지테스트() {
     // Given
-    final MemberShip memberShip = MemberShip.builder()
+    final Membership memberShip = Membership.builder()
         .userId("userId")
         .membershipType(MembershipType.NAVER)
         .point(10000)
@@ -42,7 +45,7 @@ public class MembershipRepositoryTest {
 
     // When
     membershipRepository.save(memberShip);
-    final MemberShip findResult = membershipRepository.findByUserIdAndMembershipType ("userId", MembershipType.NAVER);
+    final Membership findResult = membershipRepository.findByUserIdAndMembershipType ("userId", MembershipType.NAVER);
 
     // Then
     assertThat(findResult).isNotNull();

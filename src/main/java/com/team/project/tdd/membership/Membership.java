@@ -1,4 +1,4 @@
-package com.team.project.tdd;
+package com.team.project.tdd.membership;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +20,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity @Table @Builder @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberShip {
+public class Membership {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
